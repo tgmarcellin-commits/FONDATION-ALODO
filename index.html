@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fondation ALODO | Protection et Solidarité</title>
+    <style>
+        :root {
+            --primary: #0b5d4e;
+            --primary-dark: #083f35;
+            --accent: #f4c542;
+            --text: #1f2937;
+            --muted: #6b7280;
+            --bg: #f7faf9;
+            --card: #ffffff;
+            --border: #e5e7eb;
+            --shadow: 0 10px 30px rgba(0,0,0,.08);
+            --radius: 18px;
+        }
+
+        * { box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--text);
+            background: linear-gradient(rgba(7, 38, 31, .72), rgba(7, 38, 31, .72)), url('image1.jpg') center/cover fixed;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: rgba(255,255,255,.78);
+            z-index: -1;
+        }
+
+        img, video { max-width: 100%; display: block; }
+        a { color: inherit; text-decoration: none; }
+
+        header {
+            position: relative;
+            overflow: hidden;
+            color: white;
+            padding: 80px 5% 70px;
+            text-align: center;
+            background:
+                linear-gradient(rgba(0,0,0,.52), rgba(0,0,0,.55)),
+                url('image1.jpg') center/cover no-repeat;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid rgba(255,255,255,.35);
+            box-shadow: 0 8px 24px rgba(0,0,0,.2);
+            margin: 0 auto 18px;
+            background: white;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,.15);
+            border: 1px solid rgba(255,255,255,.25);
+            padding: 8px 14px;
+            border-radius: 999px;
+            margin-bottom: 18px;
+            font-size: .95rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        header h1, header p, .cta {
+            position: relative;
+            z-index: 2;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            letter-spacing: .5px;
+        }
+
+        header p {
+            margin: 12px auto 0;
+            max-width: 760px;
+            font-size: 1.05rem;
+            color: rgba(255,255,255,.92);
+        }
+
+        .cta {
+            margin-top: 28px;
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            border-radius: 999px;
+            font-weight: 700;
+            border: 2px solid transparent;
+            transition: .25s ease;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #111827;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border-color: rgba(255,255,255,.4);
+        }
+
+        .btn:hover { transform: translateY(-2px); }
+
+        .section {
+            padding: 70px 5%;
+            max-width: 1180px;
+            margin: auto;
+        }
+
+        .section h2 {
+            color: var(--primary);
+            font-size: clamp(1.6rem, 2.8vw, 2.3rem);
+            margin: 0 0 14px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section h2::after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        .lead {
+            color: var(--muted);
+            max-width: 820px;
+            margin: 0;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 22px;
+            margin-top: 26px;
+        }
+
+        .card {
+            background: rgba(255,255,255,.96);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            box-shadow: var(--shadow);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--primary-dark);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin-top: 28px;
+        }
+
+        .stat {
+            background: rgba(255,255,255,.96);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 22px;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .media-wrap {
+            display: grid;
+            grid-template-columns: 1.2fr .8fr;
+            gap: 24px;
+            margin-top: 28px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 14px;
+        }
+
+        .gallery img, .video-box {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            background: white;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 170px;
+            object-fit: cover;
+        }
+
+        .video-box video {
+            width: 100%;
+            height: 100%;
+            min-height: 320px;
+            object-fit: cover;
+        }
+
+        .executive {
+            list-style: none;
+            padding: 0;
+            margin: 26px 0 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 14px;
+        }
+
+        .executive li {
+            background: rgba(255,255,255,.96);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 16px 18px;
+            box-shadow: var(--shadow);
+        }
+
+        footer {
+            background: #111827;
+            color: #e5e7eb;
+            text-align: center;
+            padding: 28px 5% 90px;
+            margin-top: 40px;
+        }
+
+        footer p { margin: 6px 0; }
+
+        .bottom-nav {
+            position: fixed;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 16px;
+            z-index: 999;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            width: min(94%, 760px);
+            background: rgba(255,255,255,.18);
+            border: 1px solid rgba(255,255,255,.30);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            box-shadow: 0 12px 30px rgba(0,0,0,.20);
+            border-radius: 22px;
+            overflow: hidden;
+        }
+
+        .bottom-nav a {
+            padding: 14px 8px;
+            text-align: center;
+            color: #ffffff;
+            font-weight: 700;
+            font-size: .95rem;
+            border-right: 1px solid rgba(255,255,255,.12);
+            transition: .25s ease;
+        }
+
+        .bottom-nav a:last-child { border-right: none; }
+
+        .bottom-nav a:hover {
+            background: rgba(244,197,66,.18);
+            color: var(--accent);
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            right: 20px;
+            bottom: 98px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            box-shadow: 0 8px 20px rgba(0,0,0,.25);
+            z-index: 1000;
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.08);
+            box-shadow: 0 12px 26px rgba(0,0,0,.3);
+        }
+
+        @media (max-width: 900px) {
+            .media-wrap { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 600px) {
+            .bottom-nav {
+                width: calc(100% - 16px);
+                bottom: 8px;
+                border-radius: 18px;
+            }
+
+            .bottom-nav a {
+                font-size: .78rem;
+                padding: 12px 4px;
+            }
+
+            .whatsapp-float {
+                right: 14px;
+                bottom: 86px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header id="accueil">
+    <img src="logo.jpg" alt="Logo Fondation ALODO" class="logo">
+    <div class="hero-badge">Enregistrée sous le N° 1043 du 11/11/2011 auprès de l’autorité togolaise compétente</div>
+    <h1>FONDATION ALODO</h1>
+    <p>Protection des droits de l'enfant, santé communautaire et développement durable dans la préfecture des Lacs, au Togo.</p>
+    <div class="cta">
+        <a class="btn btn-primary" href="#contact">Nous contacter</a>
+        <a class="btn btn-outline" href="#galerie">Voir la galerie</a>
+    </div>
+</header>
+
+<section class="section">
+    <h2>Notre Fondation</h2>
+    <p class="lead">La Fondation ALODO agit sur le terrain pour améliorer les conditions de vie des populations à travers des actions sociales, sanitaires et environnementales. Son approche repose sur la proximité, la solidarité et l’impact durable.</p>
+
+    <div class="stats">
+        <div class="stat"><strong>2011</strong><span>Année d’enregistrement</span></div>
+        <div class="stat"><strong>3</strong><span>Axes d’intervention</span></div>
+        <div class="stat"><strong>6</strong><span>Membres du bureau</span></div>
+        <div class="stat"><strong>Lacs</strong><span>Zone d’action principale</span></div>
+    </div>
+</section>
+
+<section class="section" id="mission" style="background: #eefaf7; border-radius: 28px;">
+    <h2>Mission</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Santé Communautaire</h3>
+            <p>Lutte contre le VIH/SIDA à travers des campagnes de sensibilisation, l’écoute communautaire et l’orientation des personnes vulnérables.</p>
+        </div>
+        <div class="card">
+            <h3>Protection des Enfants</h3>
+            <p>Accompagnement des enfants vulnérables, défense de leurs droits fondamentaux et appui aux familles en difficulté.</p>
+        </div>
+        <div class="card">
+            <h3>Environnement</h3>
+            <p>Actions de préservation de l’écosystème local, promotion de la propreté et gestion durable du cadre de vie.</p>
+        </div>
+    </div>
+</section>
+
+<section id="galerie" class="section">
+    <h2>Galerie Images & Vidéo</h2>
+    <p class="lead">Remplacez simplement les fichiers par vos propres médias en gardant les mêmes noms : image1.jpg, image2.jpg, video1.mp4, etc.</p>
+
+    <div class="media-wrap">
+        <div class="gallery">
+            <img src="image1.jpg" alt="Photo 1">
+            <img src="image2.jpg" alt="Photo 2">
+            <img src="image3.jpg" alt="Photo 3">
+            <img src="image4.jpg" alt="Photo 4">
+        </div>
+
+        <div class="video-box">
+            <video controls poster="video-poster.jpg">
+                <source src="video1.mp4" type="video/mp4">
+                Votre navigateur ne prend pas en charge la lecture vidéo.
+            </video>
+        </div>
+    </div>
+</section>
+
+<section id="membres" class="section">
+    <h2>Membres</h2>
+    <ul class="executive">
+        <li><strong>Président Fondateur :</strong> Mr. Hillah A. Abraham</li>
+        <li><strong>Communication & RH :</strong> Mr. Quam-Dessou Yao Amegho</li>
+        <li><strong>Projets Informatiques :</strong> Mr. Agnida Charles</li>
+        <li><strong>Secrétariat :</strong> Mlle. Aghegninou Ana Kafui</li>
+        <li><strong>Environnement :</strong> Mr. Tossou Viho</li>
+        <li><strong>Assistant de Direction :</strong> Mr. Anato Pierre Cossi</li>
+    </ul>
+</section>
+
+<section id="contact" class="section" style="padding-top: 0;">
+    <div class="card">
+        <h2>Contact</h2>
+        <p class="lead">Siège social: ANEHO (P/Lacs), Togo</p>
+        <p><strong>Téléphone:</strong> +228 23 31 02 66 / +228 23 31 00 81</p>
+        <p><strong>Email:</strong> newmarket_tg@yahoo.fr</p>
+    </div>
+</section>
+
+<footer>
+    <p>Fondation ALODO — Protection et Solidarité</p>
+    <p>ANEHO (P/Lacs), Togo</p>
+</footer>
+
+<a href="https://wa.me/22890027310?text=Bonjour%20Fondation%20ALODO%2C%20je%20souhaite%20avoir%20plus%20d%27informations." class="whatsapp-float" target="_blank" aria-label="Contacter via WhatsApp">
+    💬
+</a>
+
+<nav class="bottom-nav">
+    <a href="#accueil">Accueil</a>
+    <a href="#mission">Mission</a>
+    <a href="#membres">Membres</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+</body>
+</html>
